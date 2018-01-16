@@ -4,33 +4,33 @@ var cards = ['queen', 'queen', 'king', 'king'];
 //Create an array for the card(s) in Play
 var cardsInPlay = [];
 
-//Create variable to represent the first card the user flipped
-var cardOne = cards[0];
-// Add card to array of cards in play using push method
-cardsInPlay.push(cardOne);
-// Use console.log() to display the card that the user flipped
-console.log("User flipped " + cardOne);
+//Create a function to check for a card match
+var checkForMatch = function () {
+	//Check to see if two cards match and give feedback based on results
+	if (cardsInPlay[0] === cardsInPlay[1]) {
+		alert("You found a match!");
+		} 
+	else {
+    	alert("Sorry, try again.");
+  		}
+	};
+// Create a function for steps when a user flips a card
+var flipCard = function (cardId) {
+	
+	// Use console.log() to display the card that the user flipped
+	console.log("User flipped " + cards[cardId]);
+	
+	//Add card user flipped to cardsInPlay array
+	cardsInPlay.push(cards[cardId]);
 
-// Create a variable to represent the second card the user flipped
-var cardTwo = cards[2];
-// Add card to array of cards in play using push method
-cardsInPlay.push(cardTwo);
-// Use console.log() to display the card that the user flipped
-console.log("User flipped " + cardTwo);
+	// Check to see if 2 cards have been played
+	if (cardsInPlay.length === 2) {
+		// If true, call checkForMatch function
+		checkForMatch();
+		}
+	};
 
-// Check to see if the length of the cardsInPlay array is 2
-if (cardsInPlay.length === 2) {
-
-// Check to see if two cards match and provide feedback
-if (cardsInPlay[0] === cardsInPlay[1]) {
-	alert("You found a match!");
-	} 
-else {
-    alert("Sorry, try again.");
-  	}
-}
-
-
-// Use console.log to display card selected by User (user flipped) two at a time. 
-console.log("User flipped " + cardOne);
-console.log("User flipped " + cardThree);
+// Simulate User card flip (argument using index number)
+flipCard(0);
+// Simulate another User card flip (argument using index number)
+flipCard(2);
