@@ -1,6 +1,6 @@
-/* ____________
+/* =============
 DOCUMENT STYLES 
-_______________ */
+================ */
 body {
   font-family: "Raleway", sans-serif;
   text-align: center;
@@ -16,9 +16,9 @@ body {
   font-size: 0;
 }
 
-/* ____________
+/* =============
 TEXT RULES
-_______________ */
+================ */
 h1, h2 {
   text-transform: uppercase;
 }
@@ -60,43 +60,43 @@ a:hover {
 }
 
 
-/* ____________
+/* =============
 HEADER
-_______________ */
+================ */
 header {
   background-color: #F15B31;
   color: #FFFFFF;
   padding: 30px 20px;
 }
 
-/* ____________
-NAVIGATION
-_______________ */
+/* =============
+NAV
+================ */
 nav {
   background-color: #00A6B3;
   color: #FFFFFF;
   padding: 20px 0;
 }
 
-/* ____________
+/* =============
 MAIN
-_______________ */
+================ */
 
 main {
   width: 850px;
   margin: 35px auto;
 }
 
-/* ____________
+/* =============
 CARDS
-_______________ */
+================ */
 img {
   margin: 40px 8px 0;
 }
 
-/* ____________
+/* =============
 FOOTER
-_______________ */
+================ */
 footer {
   text-transform: uppercase;
   color: #FFFFFF;
