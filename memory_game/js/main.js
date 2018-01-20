@@ -37,28 +37,45 @@ var checkForMatch = function () {
   		}
 	};
 // Create a function for steps when a user flips a card
-var flipCard = function (cardId) {
-	
-	// Use console.log() to display the card that the user flipped
-	console.log("User flipped " + cards[cardId].rank);
-	
-	//Add card user flipped to cardsInPlay array
-	cardsInPlay.push(cards[cardId].rank);
+var flipCard = function () {
+	// Get the data-id of the card that was just flipped and cache it
+  	cardId = this.getAttribute('data-id');
+  	console.log(cardId);
 
-	 // Display the image path in the console
-  	console.log(cards[cardId].cardImage)
+  	// Add rank to array of cards that are in play
+  	cardsInPlay.push(cards[cardId].rank);
 
-  	// Display the suit in the console
- 	console.log(cards[cardId].suit)
+ 	 // Display the card's image
+ 	 this.setAttribute('src', cards[cardId].cardImage);
 
-	// Check to see if 2 cards have been played
-	if (cardsInPlay.length === 2) {
-		// If true, call checkForMatch function
-		checkForMatch();
-		}
+ 		 // Check to see if two cards have been played
+ 	 	if (cardsInPlay.length === 2) {
+    	// If so, call the checkForMatch function
+    	checkForMatch();
+    	// Empty cards in play array for next try
+    	cardsInPlay = [];
+  		}
 	};
+// Cretae a function that will create your board
+var createBoard = function () {
+  // Create a for Loop through the cards array.
+  for (var i = 0; i < cards.length; i++) {
+    // Use createElement method to create an img element and store it in a variable
+    var cardElement = document.createElement('img');
 
-// Simulate User card flip (argument using index number)
-flipCard(0);
-// Simulate another User card flip (argument using index number)
-flipCard(2);
+ 		// use the setAttribute() method to add a src attribute for the cardElement
+    	cardElement.setAttribute('src', 'images/back.png');
+
+		// use the setAttribute() method to set the card's 'data-id' attribute
+		// 'data-id' should be the index of the current element
+   		cardElement.setAttribute('data-id', i);
+
+		// Add  event listener so that when a card is clicked, the function flipCard will be executed
+    	cardElement.addEventListener('click', flipCard);
+
+   		// Append the card to the board
+    	document.getElementById('game-board').appendChild(cardElement);
+  		}
+	}
+// Execute the createBoard function to create the board.
+createBoard();
